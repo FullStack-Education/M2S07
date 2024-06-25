@@ -1,0 +1,36 @@
+header {
+  width: 100%;
+  background-color: #cae5fd;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-cards {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+
+  .card {
+    border: 1px solid #cae5fd;
+    box-shadow: 9px 7px 5px 0px #bad6ee;
+    border-radius: 6px;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+
+    img {
+      height: 150px;
+    }
+
+    span {
+      margin-top: 8px;
+    }
+  }
+}
