@@ -52,4 +52,21 @@
       }
     }
   }
+
+  .voltar {
+    position: absolute;
+    bottom: 24px;
+    left: 32px;
+    border: 1px solid yellow;
+    border-radius: 4px;
+    background-color: transparent;
+    color: white;
+    height: 42px;
+    width: 125px;
+
+    &:hover {
+      cursor: pointer;
+      scale: 1.1;
+    }
+  }
 }
