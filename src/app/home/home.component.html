@@ -3,17 +3,9 @@
 </header>
 <main>
   <div class="container-cards">
-    <div class="card" [routerLink]="['/calculadora']">
-      <img src="assets/images/atividade-1.png" alt="Atividade 1">
-      <h3>Calculadora</h3>
-    </div>
-    <div class="card">
-      <img src="assets/images/atividade-2.png" alt="Atividade 2">
-      <h3>Atividade 2</h3>
-    </div>
-    <div class="card">
-      <img src="assets/images/atividade-3.png" alt="Atividade 3">
-      <h3>Atividade 3</h3>
+    <div class="card" *ngFor="let atividade of listaAtividades" [routerLink]="[atividade.rota]">
+      <img [src]="atividade.imagem" [alt]="atividade.titulo">
+      <h3>{{ atividade.titulo }}</h3>
     </div>
   </div>
 </main>
