@@ -3,9 +3,6 @@
 </header>
 <main>
   <div class="container-cards">
-    <div class="card" *ngFor="let atividade of listaAtividades" [routerLink]="[atividade.rota]">
-      <img [src]="atividade.imagem" [alt]="atividade.titulo">
-      <h3>{{ atividade.titulo }}</h3>
-    </div>
+    <app-card *ngFor="let atividade of listaAtividades" [elemento]="atividade"></app-card>
   </div>
 </main>
