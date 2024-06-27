@@ -11,14 +11,20 @@
     border-radius: 6px;
     padding: 32px 24px;
 
-    .visor > input {
-      border: 1px solid yellow;
-      border-radius: 2px;
-      outline: none;
-      background-color: transparent;
-      height: 42px;
-      width: -webkit-fill-available;
-      color: white
+    .visor {
+      text-align: end;
+      font-size: 36px;
+
+      span {
+        border: 1px solid yellow;
+        border-radius: 2px;
+        outline: none;
+        background-color: transparent;
+        height: 42px;
+        width: 100%;
+        display: block;
+        color: white
+      }
     }
 
     .teclado {

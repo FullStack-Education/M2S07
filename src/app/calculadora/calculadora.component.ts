@@ -9,5 +9,17 @@ import { RouterModule } from '@angular/router';
   styleUrl: './calculadora.component.scss'
 })
 export class CalculadoraComponent {
+  expressao = '';
 
+  tratarSelecao(param: string) {
+    this.expressao += param;
+  }
+
+  calcularResultado() {
+    this.expressao = eval(this.expressao);
+  }
+
+  limpar() {
+    this.expressao = '';
+  }
 }

@@ -1,32 +1,32 @@
 <div class="container-calculadora">
   <div class="calculadora">
     <div class="visor">
-      <input type="text" disabled>
+      <span>{{ expressao }}</span>
     </div>
     <div class="teclado">
       <div class="fileira">
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>/</button>
+        <button (click)="tratarSelecao('7')">7</button>
+        <button (click)="tratarSelecao('8')">8</button>
+        <button (click)="tratarSelecao('9')">9</button>
+        <button (click)="tratarSelecao('/')">/</button>
       </div>
       <div class="fileira">
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>X</button>
+        <button (click)="tratarSelecao('4')">4</button>
+        <button (click)="tratarSelecao('5')">5</button>
+        <button (click)="tratarSelecao('6')">6</button>
+        <button (click)="tratarSelecao('*')">X</button>
       </div>
       <div class="fileira">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>+</button>
+        <button (click)="tratarSelecao('1')">1</button>
+        <button (click)="tratarSelecao('2')">2</button>
+        <button (click)="tratarSelecao('3')">3</button>
+        <button (click)="tratarSelecao('+')">+</button>
       </div>
       <div class="fileira">
-        <button>C</button>
-        <button>0</button>
-        <button>,</button>
-        <button>=</button>
+        <button (click)="limpar()">C</button>
+        <button (click)="tratarSelecao('0')">0</button>
+        <button (click)="tratarSelecao('.')">.</button>
+        <button (click)="calcularResultado()">=</button>
       </div>
     </div>
   </div>
