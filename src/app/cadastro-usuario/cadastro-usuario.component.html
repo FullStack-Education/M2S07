@@ -1,0 +1,23 @@
+<div class="cadastro-usuario">
+  <form [formGroup]="formCadastro">
+    <fieldset>
+      <label>Nome Completo</label>
+      <input type="text" formControlName="nome">
+    </fieldset>
+    <fieldset>
+      <label>CPF</label>
+      <input type="text" formControlName="cpf">
+    </fieldset>
+    <fieldset>
+      <label>E-mail</label>
+      <input type="mail" formControlName="email">
+    </fieldset>
+    <fieldset>
+      <label>Celular</label>
+      <input type="text" formControlName="celular">
+    </fieldset>
+    <div class="botoes">
+      <button type="button" class="cadastrar" (click)="cadastrar()">Cadastrar</button>
+    </div>
+  </form>
+</div>
