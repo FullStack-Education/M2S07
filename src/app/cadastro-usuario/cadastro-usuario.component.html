@@ -1,23 +1,37 @@
 <div class="cadastro-usuario">
   <form [formGroup]="formCadastro">
     <fieldset>
-      <label>Nome Completo</label>
+      <label>Nome Completo *</label>
       <input type="text" formControlName="nome">
+      <span *ngIf="(formCadastro.controls['nome'].dirty || formCadastro.controls['nome'].touched) &&
+        formCadastro.controls['nome'].errors?.['required']">Nome obrigatório</span>
     </fieldset>
     <fieldset>
-      <label>CPF</label>
+      <label>CPF *</label>
       <input type="text" formControlName="cpf">
+      <span *ngIf="(formCadastro.controls['cpf'].dirty || formCadastro.controls['cpf'].touched) &&
+        formCadastro.controls['cpf'].errors?.['required']">CPF obrigatório</span>
     </fieldset>
     <fieldset>
-      <label>E-mail</label>
+      <label>E-mail *</label>
       <input type="mail" formControlName="email">
+      <span *ngIf="(formCadastro.controls['email'].dirty || formCadastro.controls['email'].touched) &&
+        formCadastro.controls['email'].errors?.['required']">Email obrigatório</span>
     </fieldset>
     <fieldset>
-      <label>Celular</label>
+      <label>Celular *</label>
       <input type="text" formControlName="celular">
+      <span *ngIf="(formCadastro.controls['celular'].dirty || formCadastro.controls['celular'].touched) &&
+        formCadastro.controls['celular'].errors?.['required']">Celular obrigatório</span>
     </fieldset>
     <div class="botoes">
-      <button type="button" class="cadastrar" (click)="cadastrar()">Cadastrar</button>
+      <button
+        type="button"
+        class="cadastrar"
+        (click)="cadastrar()"
+      >
+        Cadastrar
+      </button>
     </div>
   </form>
 </div>
