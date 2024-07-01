@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,10 @@ export const routes: Routes = [
   {
     path: 'cadastro-usuario',
     component: CadastroUsuarioComponent
+  },
+  {
+    path: 'usuarios',
+    component: UsuariosComponent
   },
   {
     path: '**',
