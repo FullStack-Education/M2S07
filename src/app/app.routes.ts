@@ -19,12 +19,17 @@ export const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'cadastro-usuario',
-    component: CadastroUsuarioComponent
-  },
-  {
     path: 'usuarios',
-    component: UsuariosComponent
+    children: [
+      {
+        path: '',
+        component: UsuariosComponent
+      },
+      {
+        path: 'cadastro-usuario',
+        component: CadastroUsuarioComponent
+      }
+    ]
   },
   {
     path: '**',
