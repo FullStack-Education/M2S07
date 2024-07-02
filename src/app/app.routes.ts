@@ -4,6 +4,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ConversorComponent } from './conversor/conversor.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,10 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'conversor',
+    component: ConversorComponent
   },
   {
     path: 'usuarios',
