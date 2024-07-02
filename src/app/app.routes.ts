@@ -28,6 +28,10 @@ export const routes: Routes = [
       {
         path: 'cadastro-usuario',
         component: CadastroUsuarioComponent
+      },
+      {
+        path: 'cadastro-usuario/:id',
+        component: CadastroUsuarioComponent
       }
     ]
   },

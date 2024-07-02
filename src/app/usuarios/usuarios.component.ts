@@ -12,32 +12,40 @@ import { CommonModule } from '@angular/common';
 })
 export class UsuariosComponent implements OnInit {
   textoPesquisa: string | undefined;
-  listagemUsuarios = [
-    {
-      titulo: 'Eduardo Silva',
-      imagem: 'assets/images/user.png',
-      rota: ''
-    },
-    {
-      titulo: 'José Silva',
-      imagem: 'assets/images/user.png',
-      rota: ''
-    },
-    {
-      titulo: 'José Alves',
-      imagem: 'assets/images/user.png',
-      rota: ''
-    },
-    {
-      titulo: 'Rodrigo Pereira',
-      imagem: 'assets/images/user.png',
-      rota: ''
-    }
-  ];
+  listagemUsuarios: Array<{titulo: string, imagem: string, rota: string}> = [];
   listagemUsuariosPesquisa: Array<{titulo: string, imagem: string, rota: string}> = [];
-
+  usuarios = [
+    {
+      id: 1,
+      nome: 'Eduardo Silva',
+      cpf: '12345678909',
+      email: 'mail@mail.com',
+      celular: '15959595959'
+    },
+    {
+      id: 2,
+      nome: 'André Silva',
+      cpf: '42756456452',
+      email: 'teste@mail.com',
+      celular: '158686868686'
+    },
+    {
+      id: 3,
+      nome: 'Luis Silva',
+      cpf: '98765432105',
+      email: 'teste@teste.com',
+      celular: '157676767676'
+    }
+  ]
   ngOnInit(): void {
-      this.listagemUsuariosPesquisa = this.listagemUsuarios;
+    this.usuarios.forEach(usuario => {
+      this.listagemUsuarios.push({
+        titulo: usuario.nome,
+        imagem: 'assets/images/user.png',
+        rota: `cadastro-usuario/${usuario.id}`
+      });
+    });
+    this.listagemUsuariosPesquisa = this.listagemUsuarios;
   }
 
   pesquisar() {

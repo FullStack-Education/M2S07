@@ -30,7 +30,7 @@
         class="cadastrar"
         (click)="cadastrar()"
       >
-        Cadastrar
+        {{ idUsuario ? 'Editar' : 'Cadastrar' }}
       </button>
     </div>
   </form>
