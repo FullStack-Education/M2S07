@@ -4,25 +4,25 @@
       <label>Nome Completo *</label>
       <input type="text" formControlName="nome">
       <span *ngIf="(formCadastro.controls['nome'].dirty || formCadastro.controls['nome'].touched) &&
-        formCadastro.controls['nome'].errors?.['required']">Nome obrigatório</span>
+        formCadastro.controls['nome'].errors?.['required']" appLabelErro>Nome obrigatório</span>
     </fieldset>
     <fieldset>
       <label>CPF *</label>
       <input type="text" formControlName="cpf">
       <span *ngIf="(formCadastro.controls['cpf'].dirty || formCadastro.controls['cpf'].touched) &&
-        formCadastro.controls['cpf'].errors?.['required']">CPF obrigatório</span>
+        formCadastro.controls['cpf'].errors?.['required']" appLabelErro>CPF obrigatório</span>
     </fieldset>
     <fieldset>
       <label>E-mail *</label>
       <input type="mail" formControlName="email">
       <span *ngIf="(formCadastro.controls['email'].dirty || formCadastro.controls['email'].touched) &&
-        formCadastro.controls['email'].errors?.['required']">Email obrigatório</span>
+        formCadastro.controls['email'].errors?.['required']" appLabelErro>Email obrigatório</span>
     </fieldset>
     <fieldset>
       <label>Celular *</label>
       <input type="text" formControlName="celular">
       <span *ngIf="(formCadastro.controls['celular'].dirty || formCadastro.controls['celular'].touched) &&
-        formCadastro.controls['celular'].errors?.['required']">Celular obrigatório</span>
+        formCadastro.controls['celular'].errors?.['required']" appLabelErro>Celular obrigatório</span>
     </fieldset>
     <div class="botoes">
       <button

@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { LabelErroDirective } from '../shared/directives/label-erro.directive';
 
 @Component({
   selector: 'app-cadastro-usuario',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, LabelErroDirective],
   templateUrl: './cadastro-usuario.component.html',
   styleUrl: './cadastro-usuario.component.scss'
 })
