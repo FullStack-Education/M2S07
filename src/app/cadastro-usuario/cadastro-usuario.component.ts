@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { LabelErroDirective } from '../shared/directives/label-erro.directive';
+import { nomeCompleto } from '../shared/validators/nome-completo.validator';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -44,7 +45,7 @@ export class CadastroUsuarioComponent implements OnInit {
     this.idUsuario = this.activatedRoute.snapshot.params['id'];
 
     this.formCadastro = new FormGroup({
-      nome: new FormControl('', Validators.required),
+      nome: new FormControl('', [Validators.required, nomeCompleto()]),
       cpf: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       celular: new FormControl('', Validators.required)

@@ -5,6 +5,8 @@
       <input type="text" formControlName="nome">
       <span *ngIf="(formCadastro.controls['nome'].dirty || formCadastro.controls['nome'].touched) &&
         formCadastro.controls['nome'].errors?.['required']" appLabelErro>Nome obrigatório</span>
+      <span *ngIf="(formCadastro.controls['nome'].dirty || formCadastro.controls['nome'].touched) &&
+        formCadastro.controls['nome'].errors?.['nomeCompleto']" appLabelErro>Nome inválido</span>
     </fieldset>
     <fieldset>
       <label>CPF *</label>
