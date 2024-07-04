@@ -5,15 +5,18 @@ import { LoginComponent } from './login/login.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ConversorComponent } from './conversor/conversor.component';
+import { usuarioLogadoGuard } from './shared/guards/usuario-logado.guard';
 
 export const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [usuarioLogadoGuard]
   },
   {
     path: 'calculadora',
-    component: CalculadoraComponent
+    component: CalculadoraComponent,
+    canActivate: [usuarioLogadoGuard]
   },
   {
     path: 'login',
@@ -21,10 +24,12 @@ export const routes: Routes = [
   },
   {
     path: 'conversor',
-    component: ConversorComponent
+    component: ConversorComponent,
+    canActivate: [usuarioLogadoGuard]
   },
   {
     path: 'usuarios',
+    canActivate: [usuarioLogadoGuard],
     children: [
       {
         path: '',
@@ -42,6 +47,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'login'
   }
 ];
