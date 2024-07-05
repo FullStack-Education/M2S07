@@ -1,35 +1,32 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { UsuarioInterface } from '../../shared/interfaces/usuario.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsuarioService {
-  private usuarios = [
-    {
-      id: 1,
-      nome: 'Eduardo Silva',
-      cpf: '12345678909',
-      email: 'mail@mail.com',
-      celular: '15959595959'
-    },
-    {
-      id: 2,
-      nome: 'André Silva',
-      cpf: '42756456452',
-      email: 'teste@mail.com',
-      celular: '158686868686'
-    },
-    {
-      id: 3,
-      nome: 'Luis Silva',
-      cpf: '98765432105',
-      email: 'teste@teste.com',
-      celular: '157676767676'
-    }
-  ];
+  url = 'http://localhost:3000/usuarios';
+
+  constructor(private httpClient: HttpClient) {}
 
   getUsuarios() {
-    return of(this.usuarios);
+    return this.httpClient.get<Array<UsuarioInterface>>(this.url);
+  }
+
+  getUsuario(id: string) {
+    return this.httpClient.get<UsuarioInterface>(this.url + `/${id}`);
+  }
+
+  postUsuario(usuario: UsuarioInterface) {
+    return this.httpClient.post<any>(this.url, usuario);
+  }
+
+  putUsuario(usuario: UsuarioInterface) {
+    return this.httpClient.put<any>(this.url + `/${usuario.id}`, usuario);
+  }
+
+  delete(id: string) {
+    return this.httpClient.delete<any>(this.url + `/${id}`);
   }
 }
