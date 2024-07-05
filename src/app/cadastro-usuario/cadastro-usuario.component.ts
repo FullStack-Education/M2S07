@@ -1,8 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+
 import { LabelErroDirective } from '../shared/directives/label-erro.directive';
+import { UsuarioInterface } from '../shared/interfaces/usuario.interface';
+import { UsuarioService } from '../shared/services/usuario.service';
 import { nomeCompleto } from '../shared/validators/nome-completo.validator';
 
 @Component({
@@ -10,36 +18,16 @@ import { nomeCompleto } from '../shared/validators/nome-completo.validator';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, LabelErroDirective],
   templateUrl: './cadastro-usuario.component.html',
-  styleUrl: './cadastro-usuario.component.scss'
+  styleUrl: './cadastro-usuario.component.scss',
 })
 export class CadastroUsuarioComponent implements OnInit {
-  usuarios = [
-    {
-      id: 1,
-      nome: 'Eduardo Silva',
-      cpf: '12345678909',
-      email: 'mail@mail.com',
-      celular: '15959595959'
-    },
-    {
-      id: 2,
-      nome: 'André Silva',
-      cpf: '42756456452',
-      email: 'teste@mail.com',
-      celular: '158686868686'
-    },
-    {
-      id: 3,
-      nome: 'Luis Silva',
-      cpf: '98765432105',
-      email: 'teste@teste.com',
-      celular: '157676767676'
-    }
-  ];
   formCadastro!: FormGroup;
   idUsuario: string | undefined;
 
-  constructor(public activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private usuarioService: UsuarioService
+  ) {}
 
   ngOnInit(): void {
     this.idUsuario = this.activatedRoute.snapshot.params['id'];
@@ -48,19 +36,40 @@ export class CadastroUsuarioComponent implements OnInit {
       nome: new FormControl('', [Validators.required, nomeCompleto()]),
       cpf: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
-      celular: new FormControl('', Validators.required)
+      celular: new FormControl('', Validators.required),
     });
 
-    const usuario = this.usuarios.find(usuario => usuario.id === parseInt(this.idUsuario!));
-
-    this.formCadastro.patchValue(usuario!);
+    if (this.idUsuario) {
+      this.usuarioService.getUsuario(this.idUsuario).subscribe((retorno) => {
+        if (retorno) {
+          this.formCadastro.patchValue(retorno);
+        }
+      });
+    }
   }
 
-  cadastrar() {
-    if(this.formCadastro.valid) {
-      console.log('formCadastro: ', this.formCadastro);
+  submitForm() {
+    if (this.formCadastro.valid) {
+      if (this.idUsuario) {
+        this.editar(this.formCadastro.value);
+      } else {
+        this.cadastrar(this.formCadastro.value);
+      }
     } else {
       this.formCadastro.markAllAsTouched();
     }
+  }
+
+  cadastrar(usuario: UsuarioInterface) {
+    this.usuarioService.postUsuario(usuario).subscribe((retorno) => {
+      window.alert('Usuário criado com sucesso');
+    });
+  }
+
+  editar(usuario: UsuarioInterface) {
+    usuario.id = this.idUsuario!;
+    this.usuarioService.putUsuario(usuario).subscribe((retorno) => {
+      window.alert('Usuário editado com sucesso');
+    });
   }
 }
