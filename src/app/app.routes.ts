@@ -6,6 +6,7 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ConversorComponent } from './conversor/conversor.component';
 import { usuarioLogadoGuard } from './shared/guards/usuario-logado.guard';
+import { ConsultaCepComponent } from './consulta-cep/consulta-cep.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'consulta-cep',
+    component: ConsultaCepComponent
   },
   {
     path: 'conversor',
