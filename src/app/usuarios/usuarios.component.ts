@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CardComponent } from '../shared/components/card/card.component';
 import { CommonModule } from '@angular/common';
 import { UsuarioService } from '../shared/services/usuario.service';
+import { UsuarioInterface } from '../shared/interfaces/usuario.interface';
 
 @Component({
   selector: 'app-usuarios',
@@ -15,13 +16,7 @@ export class UsuariosComponent implements OnInit {
   textoPesquisa: string | undefined;
   listagemUsuarios: Array<{titulo: string, imagem: string, rota: string}> = [];
   listagemUsuariosPesquisa: Array<{titulo: string, imagem: string, rota: string}> = [];
-  usuarios: Array<{
-    id: number;
-    nome: string;
-    cpf: string;
-    email: string;
-    celular: string;
-  }> = [];
+  usuarios: Array<UsuarioInterface> = [];
 
   constructor(public usuarioService: UsuarioService) {}
 
