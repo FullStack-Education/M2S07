@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CardComponent } from '../shared/components/card/card.component';
 
 @Component({
@@ -18,14 +17,19 @@ export class HomeComponent {
       rota: '/calculadora'
     },
     {
-      titulo: 'Atividade 2',
+      titulo: 'Usuários',
       imagem: 'assets/images/atividade-2.png',
-      rota: ''
+      rota: '/usuarios'
     },
     {
-      titulo: 'Atividade 3',
+      titulo: 'Conversor Temperatura',
       imagem: 'assets/images/atividade-3.png',
-      rota: ''
+      rota: '/conversor'
+    },
+    {
+      titulo: 'Consulta CEP',
+      imagem: 'assets/images/atividade-4.png',
+      rota: '/consulta-cep'
     }
   ];
 }

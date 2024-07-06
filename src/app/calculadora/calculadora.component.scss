@@ -1,13 +1,12 @@
 .container-calculadora {
-  width: 100vw;
-  height: 100vh;
-  background-color: #190f43;
+  width: 100%;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .calculadora {
-    border: 1px solid yellow;
+    border: 1px solid #0c2e4b;
     border-radius: 6px;
     padding: 32px 24px;
 
@@ -16,14 +15,14 @@
       font-size: 36px;
 
       span {
-        border: 1px solid yellow;
+        border: 1px solid #0c2e4b;
         border-radius: 2px;
         outline: none;
-        background-color: transparent;
+        background-color: #0c2e4b;
+        color: white;
         height: 42px;
         width: 100%;
         display: block;
-        color: white
       }
     }
 
@@ -35,12 +34,24 @@
         justify-content: space-between;
 
         button {
-          border: 1px solid yellow;
+          border: 1px solid #0c2e4b;
           border-radius: 2px;
           background-color: transparent;
-          color: white;
           height: 42px;
           width: 82px;
+
+          &.numerico {
+            background-color: #cae5fd;
+          }
+
+          &.operacao {
+            background-color: #6aa7dd;
+          }
+
+          &.acao {
+            background-color: #385e7f;
+            color: white;
+          }
 
           &:hover {
             cursor: pointer;
@@ -56,23 +67,6 @@
           margin-top: 8px;
         }
       }
-    }
-  }
-
-  .voltar {
-    position: absolute;
-    bottom: 24px;
-    left: 32px;
-    border: 1px solid yellow;
-    border-radius: 4px;
-    background-color: transparent;
-    color: white;
-    height: 42px;
-    width: 125px;
-
-    &:hover {
-      cursor: pointer;
-      scale: 1.1;
     }
   }
 }
